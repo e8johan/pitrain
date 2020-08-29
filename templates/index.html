@@ -4,17 +4,89 @@
    <title>TrainPi Control</title>
 </head>
 <script>
-function toggle_led(index) {
+function led_toggle(index) {
   var xhttp = new XMLHttpRequest();
   xhttp.open('POST', '/api/led/toggle/' + index + '/', true)
+  xhttp.setRequestHeader("Content-type", "application/json");
+  xhttp.send("{}");
+}
+function led_on(index) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open('POST', '/api/led/on/' + index + '/', true)
+  xhttp.setRequestHeader("Content-type", "application/json");
+  xhttp.send("{}");
+}
+function led_off(index) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open('POST', '/api/led/off/' + index + '/', true)
+  xhttp.setRequestHeader("Content-type", "application/json");
+  xhttp.send("{}");
+}
+function all_on() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open('POST', '/api/all/on/', true)
+  xhttp.setRequestHeader("Content-type", "application/json");
+  xhttp.send("{}");
+}
+function all_off() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open('POST', '/api/all/off/', true)
+  xhttp.setRequestHeader("Content-type", "application/json");
+  xhttp.send("{}");
+}
+function houses_on() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open('POST', '/api/houses/on/', true)
+  xhttp.setRequestHeader("Content-type", "application/json");
+  xhttp.send("{}");
+}
+function houses_off() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open('POST', '/api/houses/off/', true)
+  xhttp.setRequestHeader("Content-type", "application/json");
+  xhttp.send("{}");
+}
+function scene(sc) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open('POST', '/api/scenes/' + sc + '/', true)
   xhttp.setRequestHeader("Content-type", "application/json");
   xhttp.send("{}");
 }
 </script>
 <body>
 <h1>TrainPi Control</h1>
+
+<h2>Lights</h2>
 <ul>
-<li><input type='button' onclick='toggle_led(0);'></li>
+  <li>0H: <input type='button' value='T' onclick='led_toggle(0);'><input type='button' value='On' onclick='led_on(0);'><input type='button' value='Off' onclick='led_off(0);'></li>
+  <li>1H: <input type='button' value='T' onclick='led_toggle(1);'><input type='button' value='On' onclick='led_on(1);'><input type='button' value='Off' onclick='led_off(1);'></li>
+  <li>2: <input type='button' value='T' onclick='led_toggle(2);'><input type='button' value='On' onclick='led_on(2);'><input type='button' value='Off' onclick='led_off(2);'></li>
+  <li>3: <input type='button' value='T' onclick='led_toggle(3);'><input type='button' value='On' onclick='led_on(3);'><input type='button' value='Off' onclick='led_off(3);'></li>
+  <li>4H: <input type='button' value='T' onclick='led_toggle(4);'><input type='button' value='On' onclick='led_on(4);'><input type='button' value='Off' onclick='led_off(4);'></li>
+  <li>5: <input type='button' value='T' onclick='led_toggle(5);'><input type='button' value='On' onclick='led_on(5);'><input type='button' value='Off' onclick='led_off(5);'></li>
+  <li>6: <input type='button' value='T' onclick='led_toggle(6);'><input type='button' value='On' onclick='led_on(6);'><input type='button' value='Off' onclick='led_off(6);'></li>
+  <li>7H: <input type='button' value='T' onclick='led_toggle(7);'><input type='button' value='On' onclick='led_on(7);'><input type='button' value='Off' onclick='led_off(7);'></li>
+  <li>8: <input type='button' value='T' onclick='led_toggle(8);'><input type='button' value='On' onclick='led_on(8);'><input type='button' value='Off' onclick='led_off(8);'></li>
+  <li>9: <input type='button' value='T' onclick='led_toggle(9);'><input type='button' value='On' onclick='led_on(9);'><input type='button' value='Off' onclick='led_off(9);'></li>
+  <li>10: <input type='button' value='T' onclick='led_toggle(10);'><input type='button' value='On' onclick='led_on(10);'><input type='button' value='Off' onclick='led_off(10);'></li>
+  <li>11: <input type='button' value='T' onclick='led_toggle(11);'><input type='button' value='On' onclick='led_on(11);'><input type='button' value='Off' onclick='led_off(11);'></li>
+  <li>12: <input type='button' value='T' onclick='led_toggle(12);'><input type='button' value='On' onclick='led_on(12);'><input type='button' value='Off' onclick='led_off(12);'></li>
 </ul>
+
+<h2>Houses</h2>
+<ul>
+  <li><input type='button' value='On' onclick='houses_on();'><input type='button' value='Off' onclick='houses_off();'></li>
+</ul>
+
+<h2>All</h2>
+<ul>
+  <li><input type='button' value='On' onclick='all_on();'><input type='button' value='Off' onclick='all_off();'></li>
+</ul>
+
+<h2>Scenes</h2>
+<ul>
+  <li><input type='button' value='Start' onclick='scene('start');'></li>
+</ul>
+
 </body>
 </html>

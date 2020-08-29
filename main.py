@@ -42,6 +42,11 @@ def api_houses_off():
     ledserver.house_off()
     return '{"status": "ok"}'
 
+@app.route('/api/scene/start/', methods=['POST'])
+def api_scene_start():
+    ledserver.start_sequence()
+    return '{"status": "ok"}'
+
 if __name__ == '__main__':
     ledserver.start_sequence()
     app.run('0.0.0.0', 8080, True)
