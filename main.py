@@ -42,7 +42,7 @@ def api_houses_off():
     ledserver.house_off()
     return '{"status": "ok"}'
 
-@app.route('/api/scene/start/', methods=['POST'])
+@app.route('/api/scenes/start/', methods=['POST'])
 def api_scene_start():
     ledserver.start_sequence()
     return '{"status": "ok"}'
