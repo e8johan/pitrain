@@ -1,0 +1,16 @@
+[Unit]
+Description=TrainPi LED Web Service
+
+Wants=network.target
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+Group=pi
+WorkingDirectory=/home/pi/pitrainleds
+ExecStart=/home/pi/pitrainleds/bin/python /home/pi/pitrainleds/main.py
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

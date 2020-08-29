@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+   <title>TrainPi Control</title>
+</head>
+<script>
+function toggle_led(index) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open('POST', '/api/led/toggle/' + index + '/', true)
+  xhttp.setRequestHeader("Content-type", "application/json");
+  xhttp.send("{}");
+}
+</script>
+<body>
+<h1>TrainPi Control</h1>
+<ul>
+<li><input type='button' onclick='toggle_led(0);'></li>
+</ul>
+</body>
+</html>
